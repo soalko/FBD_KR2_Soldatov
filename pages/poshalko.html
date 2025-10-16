@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контрольная 1</title>
+    <link rel="stylesheet" href="../style/styles1.css">
+    <script>
+        function changeCSS(cssFile, cssLinkIndex) {
+
+            var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+            var newlink = document.createElement("link");
+            newlink.setAttribute("rel", "stylesheet");
+            newlink.setAttribute("type", "text/css");
+            newlink.setAttribute("href", cssFile);
+
+            document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+        }
+    </script>
+</head>
+<body>
+<div class="page-container">
+    <header class="header"><h1 class="header__title">Хэaдер</h1></header>
+    <p></p>
+    <button href="#" onclick="changeCSS('../style/styles1.css', 0);" >Стиль 1</button>
+    <p></p>
+    <button href="#" onclick="changeCSS('../style/styles2.css', 0);">Стиль 2</button>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a class="nav__link" href="../index.html">Главная</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="../pages/news.html">Новости</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="../pages/practices.html">Практики</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="../pages/goods.html">Товары</a>
+            </li>
+            <li class="nav__item nav__item--active">
+                <a class="nav__link" href="../pages/contacts.html">Контакты</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <article class="page-container">
+            <img class="lol_profile-photo" src="../images/p4.png" alt="Фото автора">
+        </article>
+        <h1 class="contact-item__title">Я - печенько</h1>
+    </main>
+    <footer class="footer"><p>Футер</p></footer>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# FBD_KR1_Soldatov
-## Контрольная работа 1
+# FBD_KR2_Soldatov
+## Контрольная работа 2
 
-Ссылка на сайт: https://soalko.github.io/FBD_KR1_Soldatov/
+Ссылка на сайт: https://soalko.github.io/FBD_KR2_Soldatov/

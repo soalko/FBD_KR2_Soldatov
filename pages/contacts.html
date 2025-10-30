@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta name="description" content="Страница контактов">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
@@ -31,8 +32,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col">
-                    <img class="img-thumbnail mx-auto d-block" src="../images/logo.png" alt=""
-                         style="width: 125px; height: 125px; object-fit:cover;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="white"
+                         class="bi bi-emoji-smile-upside-down" style="display: block; margin: auto;"
+                         viewBox="0 0 16 16">
+                        <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0"></path>
+                        <path d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5m4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5"></path>
+                    </svg>
                     <p></p>
                     <h1 class="h3 mb-1 text-center">Солдатов Александр</h1>
                 </div>
@@ -40,7 +45,7 @@
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Основная навигация">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -63,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../pages/contacts.html">
+                        <a class="nav-link active" href="../pages/contacts.html" aria-current="page">
                             <i class="bi bi-telephone me-1"></i>Контакты
                         </a>
                     </li>
@@ -137,10 +142,12 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="reset" class="btn btn-outline-secondary me-md-2">
+                            <button type="reset" class="btn btn-outline-secondary me-md-2" aria-label="Очистить форму"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); this.click(); }">
                                 <i class="bi bi-arrow-clockwise"></i> Очистить
                             </button>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" aria-label="Отправить форму"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); this.click(); }">
                                 <i class="bi bi-send-fill"></i> Отправить сообщение
                             </button>
                         </div>
@@ -207,14 +214,10 @@
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-
-            // Простая валидация
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
-
-            // Собираем данные формы
             const formData = new FormData(form);
             const data = {
                 name: formData.get('name'),
@@ -223,21 +226,12 @@
                 category: formData.get('category'),
                 message: formData.get('message')
             };
-
-            // В реальном приложении здесь был бы AJAX-запрос
             console.log('Данные формы:', data);
-
-            // Показываем уведомление об успешной отправке
             alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
-
-            // Очищаем форму
             form.reset();
 
-            // Перенаправление (если нужно)
             // window.location.href = '../pages/poshalko.html';
         });
-
-        // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
         document.getElementById('feedbackForm').addEventListener('keypress', function (event) {
             if (event.key === 'Enter' && event.target.type !== 'textarea') {
                 event.preventDefault();
